@@ -10,9 +10,11 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/navigationRef';
+import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
 // all the screen components will be rendered by react navigation and will be a props object that has a navigation prop
 const switchNavigator = createSwitchNavigator({
+  ResolveAuth: ResolveAuthScreen, // listed first, so this will show up first
   loginFlow: createStackNavigator({
     Signup: SignupScreen,
     Signin: SigninScreen
