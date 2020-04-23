@@ -13,6 +13,17 @@ import { Provider as LocationProvider } from './src/context/LocationContext';
 import { Provider as TrackProvider } from './src/context/TrackContext';
 import { setNavigator } from './src/navigationRef';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
+import { FontAwesome } from '@expo/vector-icons';
+
+const trackListFlow = createStackNavigator({
+  TrackList: TrackListScreen,
+  TrackDetail: TrackDetailScreen
+});
+
+trackListFlow.navigationOptions ={
+  title: 'Tracks',
+  tabBarIcon: <FontAwesome name="th-list" size={20} />
+}
 
 // all the screen components will be rendered by react navigation and will be a props object that has a navigation prop
 const switchNavigator = createSwitchNavigator({
@@ -22,10 +33,7 @@ const switchNavigator = createSwitchNavigator({
     Signin: SigninScreen
   }),
   mainFlow: createBottomTabNavigator({
-    trackListFlow: createStackNavigator({
-      TrackList: TrackListScreen,
-      TrackDetail: TrackDetailScreen
-    }),
+    trackListFlow,
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen
   })
